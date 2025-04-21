@@ -23,9 +23,6 @@ const images = [
   "/assets/gallery/IMG_8838.jpg",
   "/assets/gallery/IMG_8839.png",
   "/assets/gallery/IMG_8840.png",
-  "/assets/gallery/IMG_8842.png",
-  "/assets/gallery/IMG_8844.png",
-  "/assets/gallery/IMG_8845.png",
   // "/assets/gallery/IMG_.png",
 ];
 // const reversedImages = [...images].reverse();
@@ -41,6 +38,13 @@ const imageSet2 = [
   "/assets/gallery/aakriti04.jpg",
 ];
 
+const imageSet3 = [
+  "/assets/gallery/IMG_8842.png",
+  "/assets/gallery/IMG_8844.png",
+  "/assets/gallery/IMG_8845.png",
+  "/assets/gallery/nrityatrix01.jpg",
+];
+
 const Gallery = () => {
   const plugin1 = useRef(
     Autoplay({
@@ -51,10 +55,9 @@ const Gallery = () => {
   );
   const plugin2 = useRef(
     Autoplay({
-      delay: 3000, // change delay if needed
+      delay: 1700, // change delay if needed
       stopOnInteraction: false,
       stopOnMouseEnter: false,
-  
     })
   );
   const plugin3 = useRef(
@@ -68,7 +71,9 @@ const Gallery = () => {
   return (
     <div className="py-8 md:py-16">
       <FadeInBlock>
-        <p className={`text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 md:mb-12 ${playfairDisplay.className}`}>
+        <p
+          className={`text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 md:mb-12 ${playfairDisplay.className}`}
+        >
           Gallery
         </p>
         <Carousel
@@ -134,7 +139,7 @@ const Gallery = () => {
           className="w-full max-w-[90vw] mx-auto mb-4 md:mb-8"
         >
           <CarouselContent>
-            {images.map((src, index) => (
+            {imageSet3.map((src, index) => (
               <CarouselItem
                 key={index}
                 className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
