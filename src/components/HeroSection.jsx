@@ -4,6 +4,9 @@ import Link from "next/link";
 import { Angkor } from "next/font/google";
 import { Playfair_Display } from "next/font/google";
 
+import { SitarAnimation } from "@/components/SitarAnimation";
+import { DancerAnimation } from "@/components/DancerAnimation";
+
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
@@ -14,7 +17,7 @@ const angkor = Angkor({ subsets: ["latin"], weight: "400" });
 const HeroSection = () => {
   return (
     <div>
-      <div className=" ">
+      <div className="relative">
         <Image
           src="/assets/SwayamLogo.png"
           alt="SwayamLogo"
@@ -30,10 +33,18 @@ const HeroSection = () => {
           VIRASATH
         </p>
 
-        <button className={`cursor-pointer mx-auto block border border-[#5F4A37] bg-[#f9efd1] text-[#5F4A37] px-3 py-2 sm:px-4 sm:py-3 rounded-xl sm:rounded-2xl shadow-lg text-sm sm:text-base mt-5 sm:mt-6 ${playfairDisplay.className}`}>
+        <button
+          className={`cursor-pointer mx-auto block border border-[#5F4A37] bg-[#f9efd1] text-[#5F4A37] px-3 py-2 sm:px-4 sm:py-3 rounded-xl sm:rounded-2xl shadow-lg text-sm sm:text-base mt-5 sm:mt-6 ${playfairDisplay.className}`}
+        >
           <Link href={"/events"}> Explore Events</Link>
         </button>
       </div>
+      <div className="absolute top-24 lg:top-[20rem] left-0 lg:left-20">
+        <SitarAnimation />
+      </div>
+      {/* <div className="absolute top-[35rem] left-1/4 lg:top-[18rem]">
+        <DancerAnimation />
+      </div> */}
     </div>
   );
 };

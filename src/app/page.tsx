@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <main
       // style={{ backgroundImage: "url('/assets/Background.png')" }}
-      className={`min-h-screen bg-contain bg-center bg-[url('/assets/AndroidBackground.png')] md:bg-[url('/assets/Background.png')] bg-fixed text-[#5F4A37] ${openSans.className} scroll-smooth relative`}
+      className={`min-h-screen bg-contain bg-center bg-[url('/assets/AndroidBackground.png')] md:bg-[url('/assets/Background.png')] bg-fixed text-[#5F4A37] ${openSans.className} scroll-smooth`}
     >
       <div className="sticky top-0 lg:top-4 backdrop-blur-sm bg-[#5F4A37]/10 border border-[#5F4A37]/30 shadow-lg rounded-xl z-40 max-w-5xl mx-auto ">
         <NavBar />
