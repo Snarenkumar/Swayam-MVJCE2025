@@ -6,14 +6,23 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-import { Angkor } from "next/font/google";
-const angkor = Angkor({ subsets: ["latin"], weight: "400" });
+import { Playfair_Display } from "next/font/google";
+
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
+// import { Angkor } from "next/font/google";
+// const angkor = Angkor({ subsets: ["latin"], weight: "400" });
 
 const NavBar = () => {
   return (
     <div>
-      <div className="flex md:justify-evenly items-center p-5 relative">
+      <div
+        className={`flex md:justify-evenly items-center p-3 relative ${playfairDisplay.className}`}
+      >
         <div>
           <Image
             src="/assets/mvjLogo.png"
@@ -42,17 +51,23 @@ const NavBar = () => {
             <DropdownMenuTrigger asChild>
               <Menu className="h-6 w-6 " />
             </DropdownMenuTrigger>
-            <DropdownMenuContent className={`w-40 bg-[#f9efd1] text-[#5F4A37] mr-5 ${angkor.className}`}>
+            <DropdownMenuContent
+              className={`w-40 bg-[#f9efd1] text-[#5F4A37] mr-5 ${playfairDisplay.className}`}
+            >
               <DropdownMenuItem asChild>
                 <Link href="/">Home</Link>
               </DropdownMenuItem>
+              <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
                 <Link href="/events">Events</Link>
               </DropdownMenuItem>
+              <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
                 <Link href="/registrations">Registrations</Link>
               </DropdownMenuItem>
+              <DropdownMenuSeparator />
               <DropdownMenuItem>Brochure</DropdownMenuItem>
+              <DropdownMenuSeparator />
               <DropdownMenuItem>Login</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
