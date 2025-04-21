@@ -40,7 +40,7 @@ const imageSet2 = [
 
 const imageSet3 = [
   "/assets/gallery/IMG_8842.png",
-  "/assets/gallery/IMG_8844.png",
+  "/assets/gallery/IMG_4807.png",
   "/assets/gallery/IMG_8845.png",
   "/assets/gallery/nrityatrix01.jpg",
 ];
