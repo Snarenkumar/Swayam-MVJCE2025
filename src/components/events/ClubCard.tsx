@@ -32,5 +32,6 @@ export default function ClubCard({ club }: { club: Club }) {
         {club.name} – {club.description}
       </p>
     </div>
+   
   );
 }
