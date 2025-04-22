@@ -1,7 +1,8 @@
 import { Event } from '@/types/events';
 import Image from 'next/image';
+import Link from 'next/link';
 
-export default function EventCard({ event }: { event: Event }) {
+export default function EventCard({ event, clubName }: { event: Event, clubName: string }) {
   return (
     <div 
       className={`relative h-[500px] w-full max-w-4xl overflow-hidden rounded-3xl bg-cover bg-center shadow-xl`}
@@ -36,9 +37,11 @@ export default function EventCard({ event }: { event: Event }) {
               </div>
 
               <div className="flex-1 min-w-[300px]">
-                <button className="mb-4 rounded-full border-2 border-[#6e4a12] bg-white px-6 py-2 font-bold text-[#6e4a12] shadow-md">
-                  Register Now ➤
-                </button>
+                <Link href={`/events/${clubName}/${event.id}/register`}>
+                  <button className="mb-4 rounded-full border-2 border-[#6e4a12] bg-white px-6 py-2 font-bold text-[#6e4a12] shadow-md cursor-pointer hover:bg-[#f5f5f5]">
+                    Register Now ➤
+                  </button>
+                </Link>
                 <ul className="space-y-2">
                   <li>Registration fee: ₹{event.registerInfo?.fee}</li>
                   <li>Prize: {event.registerInfo?.prizes.join(', ')}</li>

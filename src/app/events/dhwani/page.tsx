@@ -1,95 +1,9 @@
 import Image from "next/image";
 import NavBar from "@/components/NavBar";
 import '../font.css'; // adjust path if needed
+import Link from "next/link";
+import { dhwaniEvents } from "@/data/clubEvents";
 
-
-const events = [
-    {
-      id: 1,
-      title: "Vocal Vistar",
-      description:
-        "Showcase your vocal talent in a melody or solo singing event that brings out the nuances of classical and contemporary styles with a Vistaar.",
-      rules: [
-        "Solo performance.",
-        "Time limit: 5 minutes.",
-        "Only karaoke or Tanpura can be used.",
-      ],
-      date: "15/04/2025",
-      time: "02:30",
-      fee: "₹ 200",
-      prize1: "₹ 2000",
-      prize2: "₹ 1000",
-      image: "/assets/clubevents/dhwani/vocal_vistar.svg",
-    },
-    {
-      id: 2,
-      title: "Spit Fire",
-      description:
-        "Unleash your inner poet, rapper or rhythmically creative lyricist in this electrifying rap battle. Spit bars that capture hearts. Let your beat reflect the pulse of expression through Spitfire.",
-      rules: [
-        "Individual event.",
-        "Time limit: 5 minutes.",
-        "Language should be clean & non-offensive.",
-      ],
-      date: "15/04/2025",
-      time: "02:30",
-      fee: "₹ 200",
-      prize1: "₹ 2000",
-      prize2: "₹ 1000",
-      image: "/assets/clubevents/dhwani/spit_fire.svg",
-    },
-    {
-      id: 3,
-      title: "Raag Rang",
-      description:
-        "Bring the essence of Raags alive in your modern musical tale of tradition in this fusion event. Blending classical elements with modern beats, this event is the true celebration of musical evolution.",
-      rules: [
-        "Teams of 4–5 members.",
-        "Time limit: 8 minutes.",
-        "Use of electronic instruments allowed.",
-      ],
-      date: "15/04/2025",
-      time: "02:30",
-      fee: "₹ 400",
-      prize1: "₹ 2000",
-      prize2: "₹ 1000",
-      image: "/assets/clubevents/dhwani/raag_rang.svg",
-    },
-    {
-      id: 4,
-      title: "Echoes And Beats",
-      description:
-        "A band showdown that invites you to unleash your music madness on the stage. Present your musical harmony and coordination while riding the spirit of rock and roll!",
-      rules: [
-        "Minimum 3 members per performance.",
-        "Time limit: 10 minutes.",
-        "Instruments to be brought by participants.",
-      ],
-      date: "15/04/2025",
-      time: "02:30",
-      fee: "₹ 300",
-      prize1: "₹ 3000",
-      prize2: "₹ 1500",
-      image: "/assets/clubevents/dhwani/echoes_beats.svg",
-    },
-    {
-      id: 5,
-      title: "Symphony Squad",
-      description:
-        "Bring your band and set the stage buzzing as you deliver a mix of symphonic wonders. Whether it’s fusion, Bollywood or jazz, this is the stage to unleash your musical spirit.",
-      rules: [
-        "Teams of 5–7 members.",
-        "Time limit: 8 minutes.",
-        "Use of karaoke and instruments is allowed.",
-      ],
-      date: "15/04/2025",
-      time: "02:30",
-      fee: "₹ 400",
-      prize1: "₹ 6000",
-      prize2: "₹ 3000",
-      image: "/assets/clubevents/dhwani/symphony_squad.svg",
-    },
-  ];
 
 export default function DhwaniPage() {
   return (
@@ -114,7 +28,7 @@ export default function DhwaniPage() {
 
       {/* Events */}
       <div className="flex flex-col gap-15 items-center px-4 md:px-16 ">
-        {events.map((event) => (
+        {dhwaniEvents.map((event) => (
        <div key={event.id} className="bg-[#E1DABD] custom-shadow rounded-3xl p-6 max-w-4xl w-full relative">
           <div className="absolute -top-12 left-2 z-10">
           <div className="pentagon text-black font-bold flex items-center justify-center text-lg">
@@ -146,9 +60,11 @@ export default function DhwaniPage() {
                 <p className="mb-1"><strong>Date :</strong> {event.date} &nbsp; <strong>Time :</strong> {event.time}</p>
                 <p className="mb-1"><strong>Registration Fee :</strong> {event.fee}</p>
                 <p className="mb-2">1st: {event.prize1} &nbsp; 2nd: {event.prize2}</p>
-                <button className="bg-[#5d4037] text-white px-7 py-2 rounded-xl italic hover:bg-[#4e342e]">
-                  Register now
-                </button>
+                <Link href={`/events/dhwani/${event.id}/register`}>
+                  <button className="bg-[#5d4037] text-white px-7 py-2 rounded-xl italic hover:bg-[#4e342e]">
+                    Register now
+                  </button>
+                </Link>
                 <div className="mt-2 text-sm ml-0 md:ml-12">
                   <strong>Event Coordinators :</strong><br />
                   1. Sriram : +91 7338688960 <br />

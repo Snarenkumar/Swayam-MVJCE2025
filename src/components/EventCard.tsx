@@ -1,5 +1,6 @@
 import { FC } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 type MegaEventProps = {
   type: "mega";
@@ -7,6 +8,8 @@ type MegaEventProps = {
   description: string;
   rules: string[];
   info: string[];
+  clubId?: string;
+  eventId?: string;
 };
 
 type DJEventProps = {
@@ -62,9 +65,20 @@ const EventCard: FC<EventCardProps> = (props) => {
                 </ul>
               </div>
               <div className="flex-1 min-w-[280px]">
-                <button className="bg-white text-[#6e4a12] border-[#6e4a12] border-[3px] font-bold py-2 px-5 rounded-full shadow-md mb-3">
-                  Register Now ➤
-                </button>
+                {props.clubId && props.eventId ? (
+                  <Link href={`/events/${props.clubId}/${props.eventId}/register`}>
+                    <button className="bg-white text-[#6e4a12] border-[#6e4a12] border-[3px] font-bold py-2 px-5 rounded-full shadow-md mb-3 cursor-pointer hover:bg-[#f5f5f5]">
+                      Register Now ➤
+                    </button>
+                  </Link>
+                ) : (
+                  <button 
+                    className="bg-white text-[#6e4a12] border-[#6e4a12] border-[3px] font-bold py-2 px-5 rounded-full shadow-md mb-3 cursor-pointer hover:bg-[#f5f5f5]"
+                    onClick={() => alert("Registration not available for this event yet.")}
+                  >
+                    Register Now ➤
+                  </button>
+                )}
                 <ul className="list-none pl-0 space-y-2">
                   {props.info.map((item, idx) => (
                     <li key={idx} className="relative pl-5 before:content-['●'] before:absolute before:left-0">

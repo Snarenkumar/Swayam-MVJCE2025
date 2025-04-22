@@ -1,11 +1,13 @@
 import Image from "next/image";
 import NavBar from "@/components/NavBar";
 import '../font.css'; // adjust path if needed
+import Link from "next/link";
+import { ClubEvent } from "@/types/events";
 
-
-const events = [
+// Create properly structured events using the ClubEvent type
+const nrityatrixEvents: ClubEvent[] = [
     {
-      id: 1,
+      id: "indian-solo",
       title: "Indian Solo Dance Competition",
       description:
         "Celebrate the elegance of India's traditional dance forms with mesmerizing moves and vibrant expressions. Let your performance reflect the cultural hues of VIRASAT.",
@@ -22,7 +24,7 @@ const events = [
       image: "/assets/clubevents/nrityatrix/indian_solo.svg",
     },
     {
-      id: 2,
+      id: "western-solo",
       title: "Western Solo Dance Competition",
       description:
         "Showcase high-octane solo dance talent with high-energy moves that captivate judges and audiences. Unleash your creativity and stage presence.",
@@ -39,7 +41,7 @@ const events = [
       image: "/assets/clubevents/nrityatrix/western_solo.svg",
     },
     {
-      id: 3,
+      id: "duet-dance",
       title: "Duet Dance Competition",
       description:
         "Witness the beautiful harmony of two artists in perfect synchronization as they bring rhythm and passion to the stage with their duet performance.",
@@ -56,7 +58,7 @@ const events = [
       image: "/assets/clubevents/nrityatrix/duet_dance.svg",
     },
     {
-      id: 4,
+      id: "open-dance-battle",
       title: "Open Dance Battle Competition",
       description:
         "Bring the heat to the floor in this spontaneous dance showdown. Unpredictable beats and raw talent take center stage.",
@@ -73,7 +75,7 @@ const events = [
       image: "/assets/clubevents/nrityatrix/battle.svg",
     },
     {
-      id: 5,
+      id: "western-group",
       title: "Western Group Dance Competition",
       description:
         "Showcase your group's creativity and energy through synchronized choreography that resonates with the vibrancy of Western dance styles.",
@@ -88,8 +90,9 @@ const events = [
       prize1: "₹ 5000",
       prize2: "₹ 3000",
       image: "/assets/clubevents/nrityatrix/western_group.svg",
-    }, {
-      id: 6,
+    }, 
+    {
+      id: "mega-event",
       title: "Mega Event",
       description:
         "A grand spectacle combining drama, music, and dance into a thematic performance. Bring the spirit of VIRAASATH alive through your artistry.",
@@ -103,12 +106,12 @@ const events = [
       fee: "₹ 1500",
       prize1: "₹ 50,000",
       prize2: "₹ 25,000",
-      image: "/assets/clubevents/nityatrix/mega_event.png", // Make sure this image is added to your assets
+      image: "/assets/clubevents/nrityatrix/mega_event.svg",
     },
   ];
   
 
-export default function AakritiPage() {
+export default function NrityatrixPage() {
   return (
     <div className="bg-[#F9F4D7] text-[#5F4A37] font-serif min-h-screen pb-10">
       <NavBar/>
@@ -131,7 +134,7 @@ export default function AakritiPage() {
 
       {/* Events */}
       <div className="flex flex-col gap-15 items-center px-4 md:px-16 ">
-        {events.map((event) => (
+        {nrityatrixEvents.map((event) => (
        <div key={event.id} className="bg-[#E1DABD] custom-shadow rounded-3xl p-6 max-w-4xl w-full relative">
           <div className="absolute -top-12 left-2 z-10">
           <div className="pentagon text-black font-bold flex items-center justify-center text-lg">
@@ -163,9 +166,11 @@ export default function AakritiPage() {
                 <p className="mb-1"><strong>Date :</strong> {event.date} &nbsp; <strong>Time :</strong> {event.time}</p>
                 <p className="mb-1"><strong>Registration Fee :</strong> {event.fee}</p>
                 <p className="mb-2">1st: {event.prize1} &nbsp; 2nd: {event.prize2}</p>
-                <button className="bg-[#5d4037] text-white px-7 py-2 rounded-xl italic hover:bg-[#4e342e]">
-                  Register now
-                </button>
+                <Link href={`/events/nrityatrix/${event.id}/register`}>
+                  <button className="bg-[#5d4037] text-white px-7 py-2 rounded-xl italic hover:bg-[#4e342e] cursor-pointer">
+                    Register now
+                  </button>
+                </Link>
                 <div className="mt-2 text-sm ml-0 md:ml-12">
                   <strong>Event Coordinators :</strong><br />
                   1. Sriram : +91 7338688960 <br />

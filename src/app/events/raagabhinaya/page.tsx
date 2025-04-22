@@ -1,11 +1,13 @@
 import Image from "next/image";
 import NavBar from "@/components/NavBar";
 import '../font.css'; // adjust path if needed
+import Link from "next/link";
+import { ClubEvent } from "@/types/events";
 
 
-const events = [
+const raagabhinayaEvents: ClubEvent[] = [
     {
-      id: 1,
+      id: "mono-acting",
       title: "Mono Acting",
       description:
         "Step into the spotlight and showcase your acting skills in this solo performance event. Convey emotions and stories through dramatic artistry.",
@@ -22,7 +24,7 @@ const events = [
       image: "/assets/clubevents/raagabhinaya/mono_acting.svg",
     },
     {
-      id: 2,
+      id: "street-play",
       title: "Street Play",
       description:
         "Command the streets with impactful performances that bring societal issues to the forefront. Fuse energy and creativity to inspire change while honoring the values of VIRASAT.",
@@ -39,7 +41,7 @@ const events = [
       image: "/assets/clubevents/raagabhinaya/street_play.svg",
     },
     {
-      id: 3,
+      id: "mime-group",
       title: "Mime Group",
       description:
         "Delve into the art of silent storytelling, where actions speak louder than words. Express emotions and narratives that transcend language barriers with finesse and creativity.",
@@ -56,10 +58,10 @@ const events = [
       image: "/assets/clubevents/raagabhinaya/mime_group.svg",
     },
     {
-      id: 4,
+      id: "short-film",
       title: "Short Film Making",
       description:
-        "Lights, camera, action! Create a cinematic masterpiece that tells a story that’s both emotionally powerful and visually stunning.",
+        "Lights, camera, action! Create a cinematic masterpiece that tells a story that's both emotionally powerful and visually stunning.",
       rules: [
         "Teams of up to 5 participants.",
         "Film duration: 6 minutes.",
@@ -73,7 +75,7 @@ const events = [
       image: "/assets/clubevents/raagabhinaya/short_film.svg",
     },
     {
-      id: 5,
+      id: "stand-up",
       title: "Stand-Up",
       description:
         "Bring the house down with your humor and wit in this solo stand-up comedy event. Make the audience laugh while reflecting the cultural essence of VIRASAT.",
@@ -90,7 +92,7 @@ const events = [
       image: "/assets/clubevents/raagabhinaya/stand_up.svg",
     },
     {
-      id: 6,
+      id: "graphic-design",
       title: "Graphic Designing",
       description:
         "Transform your ideas into stunning visuals that captivate and inspire. Let your creativity shine in this design competition.",
@@ -107,7 +109,7 @@ const events = [
       image: "/assets/clubevents/raagabhinaya/graphic_design.svg",
     },
     {
-      id: 7,
+      id: "photography",
       title: "Photography",
       description:
         "Capture the spirit of VIRASAT through your lens. Tell stories that words cannot express in this photography contest.",
@@ -124,7 +126,7 @@ const events = [
       image: "/assets/clubevents/raagabhinaya/photography.svg",
     },
     {
-      id: 8,
+      id: "improv",
       title: "Improv",
       description:
         "Unleash your spontaneity and humor in this improvisation event where quick thinking takes the stage. Create magic on the spot.",
@@ -138,12 +140,12 @@ const events = [
       fee: "₹ 600",
       prize1: "₹ 4000",
       prize2: "₹ 3000",
-      image: "/assets/clubevents/raagabhinaya/photography.svg",
+      image: "/assets/clubevents/raagabhinaya/improv.svg",
     }
   ];
   
 
-export default function AakritiPage() {
+export default function RaagabhinayaPage() {
   return (
     <div className="bg-[#F9F4D7] text-[#5F4A37] font-serif min-h-screen pb-10">
       <NavBar/>
@@ -166,7 +168,7 @@ export default function AakritiPage() {
 
       {/* Events */}
       <div className="flex flex-col gap-15 items-center px-4 md:px-16 ">
-        {events.map((event) => (
+        {raagabhinayaEvents.map((event) => (
        <div key={event.id} className="bg-[#E1DABD] custom-shadow rounded-3xl p-6 max-w-4xl w-full relative">
           <div className="absolute -top-12 left-2 z-10">
           <div className="pentagon text-black font-bold flex items-center justify-center text-lg">
@@ -198,9 +200,11 @@ export default function AakritiPage() {
                 <p className="mb-1"><strong>Date :</strong> {event.date} &nbsp; <strong>Time :</strong> {event.time}</p>
                 <p className="mb-1"><strong>Registration Fee :</strong> {event.fee}</p>
                 <p className="mb-2">1st: {event.prize1} &nbsp; 2nd: {event.prize2}</p>
-                <button className="bg-[#5d4037] text-white px-7 py-2 rounded-xl italic hover:bg-[#4e342e]">
-                  Register now
-                </button>
+                <Link href={`/events/raagabhinaya/${event.id}/register`}>
+                  <button className="bg-[#5d4037] text-white px-7 py-2 rounded-xl italic hover:bg-[#4e342e] cursor-pointer">
+                    Register now
+                  </button>
+                </Link>
                 <div className="mt-2 text-sm ml-0 md:ml-12">
                   <strong>Event Coordinators :</strong><br />
                   1. Sriram : +91 7338688960 <br />

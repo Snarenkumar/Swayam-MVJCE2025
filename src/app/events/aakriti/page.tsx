@@ -1,95 +1,8 @@
 import Image from "next/image";
 import NavBar from "@/components/NavBar";
 import '../font.css'; // adjust path if needed
-
-
-const events = [
-  {
-    id: 1,
-    title: "Pencil/Graphic Sketching",
-    description:
-      "Bring your artistic visions to life with detailed pencil or graphic sketches. Whether traditional or digital, showcase your creativity and attention to detail.",
-    rules: [
-      "Individual event.",
-      "Performance duration: 2.5 minutes.",
-      "On-the-spot theme provided.",
-    ],
-    date: "15/04/2025",
-    time: "02:30",
-    fee: "₹ 300",
-    prize1: "₹ 3000",
-    prize2: "₹ 1500",
-    image: "/assets/clubevents/aakriti/pencil_sketching.svg",
-  },
-  {
-    id: 2,
-    title: "Face & Body Painting",
-    description:
-      "Turn faces and bodies into vibrant canvases to express the spirit of VIRASAT. Creativity and technique will set you apart in this artistic challenge.",
-    rules: [
-      "Teams of 2 members.",
-      "Time limit: 2.5 hours.",
-      "Bring your own materials.",
-    ],
-    date: "15/04/2025",
-    time: "02:30",
-    fee: "₹ 300",
-    prize1: "₹ 3000",
-    prize2: "₹ 1500",
-    image: "/assets/clubevents/aakriti/face_painting.svg",
-  },
-  {
-    id: 3,
-    title: "Ceramic Doodling",
-    description:
-      "Transform plain ceramics into masterpieces by adding intricate and vibrant doodles. A perfect blend of creativity and craftsmanship.",
-    rules: [
-      "Individual event.",
-      "Performance duration: 2.5 minutes.",
-      "Ceramic pieces will be provided.",
-    ],
-    date: "15/04/2025",
-    time: "02:30",
-    fee: "₹ 250",
-    prize1: "₹ 2000",
-    prize2: "₹ 1000",
-    image: "/assets/clubevents/aakriti/ceramic.svg",
-  },
-  {
-    id: 4,
-    title: "Treasure from Trash",
-    description:
-      "Turn discarded materials into artistic treasures that reflect creativity and innovation. Prove that art has no boundaries.",
-    rules: [
-      "Teams of 2-3 members.",
-      "Performance duration: 3 Hours.",
-      "Materials will be provided.",
-    ],
-    date: "15/04/2025",
-    time: "02:30",
-    fee: "₹ 250",
-    prize1: "₹ 4000",
-    prize2: "₹ 2000",
-    image: "/assets/clubevents/aakriti/treasure.svg", // Add this image to public/assets/clubevents/aakriti/
-  },
-  {
-    id: 5,
-    title: "Rangoli Rachana",
-    description:
-      "Celebrate Indian traditions by crafting stunning rangoli designs with vibrant colors. Showcase your skills and bring your designs to life.",
-    rules: [
-      "Individual or team participation (max 2 members).",
-      "Performance duration: 2.5 hours.",
-      "Bring your own materials.",
-    ],
-    date: "15/04/2025",
-    time: "02:30",
-    fee: "₹ 150",
-    prize1: "₹ 1500",
-    prize2: "₹ 800",
-    image: "/assets/clubevents/aakriti/rangoli.svg", // Add this image to public/assets/clubevents/aakriti/
-  },
-];
+import Link from "next/link";
+import { aakritiEvents } from "@/data/clubEvents";
 
 
 export default function AakritiPage() {
@@ -115,7 +28,7 @@ export default function AakritiPage() {
 
       {/* Events */}
       <div className="flex flex-col gap-15 items-center px-4 md:px-16 ">
-        {events.map((event) => (
+        {aakritiEvents.map((event) => (
        <div key={event.id} className="bg-[#E1DABD] custom-shadow rounded-3xl p-6 max-w-4xl w-full relative">
           <div className="absolute -top-12 left-2 z-10">
           <div className="pentagon text-black font-bold flex items-center justify-center text-lg">
@@ -147,13 +60,15 @@ export default function AakritiPage() {
                 <p className="mb-1"><strong>Date :</strong> {event.date} &nbsp; <strong>Time :</strong> {event.time}</p>
                 <p className="mb-1"><strong>Registration Fee :</strong> {event.fee}</p>
                 <p className="mb-2">1st: {event.prize1} &nbsp; 2nd: {event.prize2}</p>
-                <button className="bg-[#5d4037] text-white px-7 py-2 rounded-xl italic hover:bg-[#4e342e]">
-                  Register now
-                </button>
+                <Link href={`/events/aakriti/${event.id}/register`}>
+                  <button className="bg-[#5d4037] text-white px-7 py-2 rounded-xl italic hover:bg-[#4e342e]">
+                    Register now
+                  </button>
+                </Link>
                 <div className="mt-2 text-sm ml-0 md:ml-12">
                   <strong>Event Coordinators :</strong><br />
-                  1. Sriram : +91 7338688960 <br />
-                  2. Hari Vaidhya : +91 6379719184
+                  1. Meghna : +91 9867349102 <br />
+                  2. Akhil : +91 8842397610
                 </div>
               </div>
             </div>
@@ -165,8 +80,9 @@ export default function AakritiPage() {
   <h2 className="text-3xl sm:text-4xl font-bold jaini-font mb-4">CONTACT US</h2>
   <p className="text-2xl mb-2">Club Coordinators :-</p>
   <div className="text-base space-y-2 font-semibold">
-    <p>Aditya: 6361931910</p>
-    <p>Pushpanjali: 9353361331</p>
+ 
+      <p>Ananya Sharma: 9844567810</p> 
+      <p>Karthik R: 8762103498</p> 
   </div>
 </footer>
     </div>

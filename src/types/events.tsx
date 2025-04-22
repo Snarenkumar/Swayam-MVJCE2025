@@ -23,3 +23,16 @@ export interface Event {
     description: string;
     image: string;
   }
+
+  export interface ClubEvent {
+    id: string;
+    title: string;
+    description: string;
+    rules: string[];
+    date: string;
+    time: string;
+    fee: string;
+    prize1: string;
+    prize2: string;
+    image: string;
+  }

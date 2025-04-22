@@ -1,11 +1,13 @@
 import Image from "next/image";
 import NavBar from "@/components/NavBar";
 import '../font.css'; // adjust path if needed
+import Link from "next/link";
+import { ClubEvent } from "@/types/events";
 
 
-const events = [
+const saahityaEvents: ClubEvent[] = [
     {
-      id: 1,
+      id: "jam",
       title: "JAM (Just A Minute)",
       description:
         "Test your wit and spontaneity in this fast-paced speaking challenge. Keep your thoughts sharp, your words sharper, and impress the audience in JUST A MINUTE.",
@@ -22,7 +24,7 @@ const events = [
       image: "/assets/clubevents/saahitya/jam.svg",
     },
     {
-      id: 2,
+      id: "slam-poetry",
       title: "Slam Poetry",
       description:
         "Showcase your lyrical mastery and rhythmic creativity in this electrifying rapping and beatboxing competition. Let your beats reflect the pulse of tradition meeting innovation.",
@@ -39,7 +41,7 @@ const events = [
       image: "/assets/clubevents/saahitya/slam_poetry.svg",
     },
     {
-      id: 3,
+      id: "air-crash",
       title: "Air Crash",
       description:
         "One parachute, one chance to plead. The weight of survival, your words must lead. With wit and charm, you stake your claim. Convince them now or lose the flame.",
@@ -55,7 +57,7 @@ const events = [
       prize2: "₹ 1500",
       image: "/assets/clubevents/saahitya/air_crash.svg",
     }, {
-        id: 4,
+        id: "literary-treasure-hunt",
         title: "Literary Treasure Hunt",
         description:
           "Embark on a thrilling adventure through words and riddles. Crack literary clues and solve mystery challenges to uncover hidden treasures where time is the ultimate judge.",
@@ -72,10 +74,10 @@ const events = [
         image: "/assets/clubevents/saahitya/literary_treasure_hunt.svg",
       },
       {
-        id: 5,
+        id: "team-debate",
         title: "Team Debate",
         description:
-          "Engage in lively intellectual battles, where every argument sharpens your wit. Join forces to tackle critical topics, presenting perspectives with structure and precision. It’s a stage to reason, refute, and redefine the narrative.",
+          "Engage in lively intellectual battles, where every argument sharpens your wit. Join forces to tackle critical topics, presenting perspectives with structure and precision. It's a stage to reason, refute, and redefine the narrative.",
         rules: [
           "Teams of 3 participants.",
           "Time limit: 5 minutes per round.",
@@ -89,10 +91,10 @@ const events = [
         image: "/assets/clubevents/saahitya/team_debate.svg",
       },
       {
-        id: 6,
+        id: "sensory-writing",
         title: "Sensory Writing Challenge",
         description:
-          "From pen to paper, now from perception to prose, writing demands more than fleeting feelings in your mind. Don’t let your senses deceive you; go beyond impressions, unearthing truths that lie beneath. To be a writer is to shape raw sensations into vivid, unforgettable creations.",
+          "From pen to paper, now from perception to prose, writing demands more than fleeting feelings in your mind. Don't let your senses deceive you; go beyond impressions, unearthing truths that lie beneath. To be a writer is to shape raw sensations into vivid, unforgettable creations.",
         rules: [
           "Individual event.",
           "Time limit: 30 minutes.",
@@ -106,8 +108,8 @@ const events = [
         image: "/assets/clubevents/saahitya/sensory_writing.svg",
       },
       {
-        id: 7,
-        title: "The Poet’s Auction",
+        id: "poets-auction",
+        title: "The Poet's Auction",
         description:
           "Step into a world where words become currency, and poetry finds its power through a bidding frenzy. Auction for words to craft your verses, choose wisely as every syllable carries weight. Blend creativity with persuasion, captivating hearts and minds with your poetic flair.",
         rules: [
@@ -122,7 +124,7 @@ const events = [
         prize2: "₹ 2000",
         image: "/assets/clubevents/saahitya/poets_auction.svg",
       },{
-        id: 8,
+        id: "design-domino",
         title: "Design Domino",
         description:
           "Unleash your inner designer to create stunning narratives through visuals. Build upon each domino for a unique chain of ideas.",
@@ -139,7 +141,7 @@ const events = [
         image: "/assets/clubevents/saahitya/design_domino.svg",
       },
       {
-        id: 9,
+        id: "enact-journalism",
         title: "Enact Journalism",
         description:
           "Immerse yourself in the dynamic realm of reporting, where every headline springs to life on stage. Recreate pivotal news events with dramatic expression, blending storytelling.",
@@ -156,7 +158,7 @@ const events = [
         image: "/assets/clubevents/saahitya/enact_journalism.svg",
       },
       {
-        id: 10,
+        id: "model-united-nations",
         title: "Model United Nations",
         description:
           "Step into the shoes of world diplomats, navigating the intricate web of global challenges. Engage in thought-provoking discussions, negotiate impactful resolutions, and represent nations with conviction. Display leadership, teamwork, and diplomacy as you work to craft a better tomorrow.",
@@ -173,7 +175,7 @@ const events = [
         image: "/assets/clubevents/saahitya/model_united_nations.svg",
       },
       {
-        id: 11,
+        id: "murder-mystery",
         title: "Murder Mystery Solving",
         description:
           "Put on your detective hat and solve a thrilling murder mystery. Gather clues, interrogate suspects, and uncover the truth.",
@@ -191,7 +193,7 @@ const events = [
       },
   ];
 
-export default function AakritiPage() {
+export default function SaahityaPage() {
   return (
     <div className="bg-[#F9F4D7] text-[#5F4A37] font-serif min-h-screen pb-10">
       <NavBar/>
@@ -214,7 +216,7 @@ export default function AakritiPage() {
 
       {/* Events */}
       <div className="flex flex-col gap-15 items-center px-4 md:px-16 ">
-        {events.map((event) => (
+        {saahityaEvents.map((event) => (
        <div key={event.id} className="bg-[#E1DABD] custom-shadow rounded-3xl p-6 max-w-4xl w-full relative">
           <div className="absolute -top-12 left-2 z-10">
           <div className="pentagon text-black font-bold flex items-center justify-center text-lg">
@@ -246,9 +248,11 @@ export default function AakritiPage() {
                 <p className="mb-1"><strong>Date :</strong> {event.date} &nbsp; <strong>Time :</strong> {event.time}</p>
                 <p className="mb-1"><strong>Registration Fee :</strong> {event.fee}</p>
                 <p className="mb-2">1st: {event.prize1} &nbsp; 2nd: {event.prize2}</p>
-                <button className="bg-[#5d4037] text-white px-7 py-2 rounded-xl italic hover:bg-[#4e342e]">
-                  Register now
-                </button>
+                <Link href={`/events/saahitya/${event.id}/register`}>
+                  <button className="bg-[#5d4037] text-white px-7 py-2 rounded-xl italic hover:bg-[#4e342e] cursor-pointer">
+                    Register now
+                  </button>
+                </Link>
                 <div className="mt-2 text-sm ml-0 md:ml-12">
                   <strong>Event Coordinators :</strong><br />
                   1. Sriram : +91 7338688960 <br />
@@ -264,8 +268,9 @@ export default function AakritiPage() {
   <h2 className="text-3xl sm:text-4xl font-bold jaini-font mb-4">CONTACT US</h2>
   <p className="text-2xl mb-2">Club Coordinators :-</p>
   <div className="text-base space-y-2 font-semibold">
-    <p>Akash: 6361482706</p>
-    <p>Maclin: 8217648197</p>
+    <p>Usha: 7022633144</p>
+    <p>Harshini: 6362109518</p>
+    <p>Nikhil: 9686623539</p>
   </div>
 </footer>
     </div>
