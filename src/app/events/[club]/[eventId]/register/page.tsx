@@ -21,7 +21,6 @@ export default function RegisterPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-  const [registrationId, setRegistrationId] = useState('');
 
   useEffect(() => {
     // Use the central data source to find the event
@@ -96,16 +95,16 @@ export default function RegisterPage() {
 
       // Show success message
       setSuccessMessage(data.message || 'Registration successful!');
-      setRegistrationId(data.registrationId || '');
-
+      
       // After 3 seconds, redirect to the club page
       setTimeout(() => {
         router.push(`/events/${clubName}`);
       }, 3000);
 
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Registration error:', err);
-      setError(err.message || 'Failed to register. Please try again later.');
+      const errorMessage = err instanceof Error ? err.message : 'Failed to register. Please try again later.';
+      setError(errorMessage);
     } finally {
       setIsSubmitting(false);
     }
