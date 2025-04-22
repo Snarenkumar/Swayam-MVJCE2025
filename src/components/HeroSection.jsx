@@ -42,7 +42,7 @@ const HeroSection = () => {
       <div className="absolute top-24 lg:top-[20rem] left-0 lg:left-20">
         <SitarAnimation />
       </div>
-      {/* <div className="absolute top-[35rem] left-1/4 lg:top-[18rem]">
+      {/* <div className="absolute top-[35rem] lg:top-[18rem]">
         <DancerAnimation />
       </div> */}
     </div>
